@@ -308,7 +308,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"KEMFSED_Gr": "int","County": "str"};
+        var Filters = {"KEMFSED_Gr": "int","County": "str","Phase": "str","Sub-projec": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -472,6 +472,77 @@
                 filterFunc();
             };
             div_County.appendChild(reset_County);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Phase = document.createElement('div');
+            div_Phase.id = "div_Phase";
+            div_Phase.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Phase);
+            sel_Phase = document.createElement('select');
+            sel_Phase.multiple = true;
+            sel_Phase.size = 3;
+            sel_Phase.id = "sel_Phase";
+            var Phase_options_str = "<option value='' unselected></option>";
+            sel_Phase.onchange = function(){filterFunc()};
+            Phase_options_str  += '<option value="NULL">NULL</option>';
+            Phase_options_str  += '<option value="Phase 1">Phase 1</option>';
+            Phase_options_str  += '<option value="Phase 2">Phase 2</option>';
+            sel_Phase.innerHTML = Phase_options_str;
+            div_Phase.appendChild(sel_Phase);
+            var lab_Phase = document.createElement('div');
+            lab_Phase.innerHTML = 'Phase';
+            lab_Phase.className = 'filterlabel';
+            div_Phase.appendChild(lab_Phase);
+            var reset_Phase = document.createElement('div');
+            reset_Phase.innerHTML = 'clear filter';
+            reset_Phase.className = 'filterlabel';
+            reset_Phase.onclick = function() {
+                var options = document.getElementById("sel_Phase").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Phase.appendChild(reset_Phase);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Subprojec = document.createElement('div');
+            div_Subprojec.id = "div_Subprojec";
+            div_Subprojec.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Subprojec);
+            sel_Subprojec = document.createElement('select');
+            sel_Subprojec.multiple = true;
+            sel_Subprojec.size = 10;
+            sel_Subprojec.id = "sel_Subprojec";
+            var Subprojec_options_str = "<option value='' unselected></option>";
+            sel_Subprojec.onchange = function(){filterFunc()};
+            Subprojec_options_str  += '<option value="NULL">NULL</option>';
+            Subprojec_options_str  += '<option value="Aquaculture">Aquaculture</option>';
+            Subprojec_options_str  += '<option value="Boat">Boat</option>';
+            Subprojec_options_str  += '<option value="Crops">Crops</option>';
+            Subprojec_options_str  += '<option value="Environment">Environment</option>';
+            Subprojec_options_str  += '<option value="Fisheries">Fisheries</option>';
+            Subprojec_options_str  += '<option value="Livelihood">Livelihood</option>';
+            Subprojec_options_str  += '<option value="Livestock">Livestock</option>';
+            Subprojec_options_str  += '<option value="SME">SME</option>';
+            Subprojec_options_str  += '<option value="Social">Social</option>';
+            sel_Subprojec.innerHTML = Subprojec_options_str;
+            div_Subprojec.appendChild(sel_Subprojec);
+            var lab_Subprojec = document.createElement('div');
+            lab_Subprojec.innerHTML = 'Sub-projec';
+            lab_Subprojec.className = 'filterlabel';
+            div_Subprojec.appendChild(lab_Subprojec);
+            var reset_Subprojec = document.createElement('div');
+            reset_Subprojec.innerHTML = 'clear filter';
+            reset_Subprojec.className = 'filterlabel';
+            reset_Subprojec.onclick = function() {
+                var options = document.getElementById("sel_Subprojec").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Subprojec.appendChild(reset_Subprojec);
         </script>
     </body>
 </html>
