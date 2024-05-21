@@ -6,17 +6,15 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/filter.css">
 <link rel="stylesheet" href="css/nouislider.min.css">
         <style>
-        html, body, #map {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
+        #map {
+            width: 1505px;
+            height: 843px;
         }
         </style>
         <title>KEMFSED SUB PROJECT DATA</title>
@@ -25,8 +23,7 @@
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
-        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -38,7 +35,7 @@
         <script src="js/tailDT.js"></script>
 <script src="js/nouislider.min.js"></script>
 <script src="js/wNumb.js"></script>
-        <script src="data/KEMFSEDSubProjects_1.js"></script>
+        <script src="data/KEMFSED_SubProjects_1.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -61,7 +58,6 @@
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
             if (bounds_group.getLayers().length) {
@@ -81,7 +77,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_KEMFSEDSubProjects_1(feature, layer) {
+        function pop_KEMFSED_SubProjects_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -104,19 +100,19 @@
                         <td>' + (feature.properties['Ward'] !== null ? autolinker.link(feature.properties['Ward'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">CIG Name</th>\
+                        <th scope="row">CIG_Name</th>\
                         <td>' + (feature.properties['Name of CI'] !== null ? autolinker.link(feature.properties['Name of CI'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Sub Project Title</th>\
+                        <th scope="row">Sub_Project</th>\
                         <td>' + (feature.properties['Sub-projec'] !== null ? autolinker.link(feature.properties['Sub-projec'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Males</th>\
+                        <th scope="row">Male</th>\
                         <td>' + (feature.properties['Male'] !== null ? autolinker.link(feature.properties['Male'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Females</th>\
+                        <th scope="row">Female</th>\
                         <td>' + (feature.properties['Female'] !== null ? autolinker.link(feature.properties['Female'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -128,147 +124,141 @@
                         <td>' + (feature.properties['Absorption'] !== null ? autolinker.link(feature.properties['Absorption'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">KEMFSED_Gr</th>\
-                        <td>' + (feature.properties['KEMFSED_Gr'] !== null ? autolinker.link(feature.properties['KEMFSED_Gr'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Kemfsed_Grant</th>\
+                        <td>' + (feature.properties['KEMFSED_GR'] !== null ? autolinker.link(feature.properties['KEMFSED_GR'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Amount</th>\
-                        <td>' + (feature.properties['Amount'] !== null ? autolinker.link(feature.properties['Amount'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Disbursement</th>\
+                        <td>' + (feature.properties['DISBUR'] !== null ? autolinker.link(feature.properties['DISBUR'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Expenditu</th>\
-                        <td>' + (feature.properties['Expenditu'] !== null ? autolinker.link(feature.properties['Expenditu'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Expenditure</th>\
+                        <td>' + (feature.properties['EXPENDIT'] !== null ? autolinker.link(feature.properties['EXPENDIT'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_KEMFSEDSubProjects_1_0(feature) {
+        function style_KEMFSED_SubProjects_1_0(feature) {
             switch(String(feature.properties['County'])) {
                 case 'Kilifi':
                     return {
-                pane: 'pane_KEMFSEDSubProjects_1',
-                shape: 'triangle',
-                radius: 6.4,
+                pane: 'pane_KEMFSED_SubProjects_1',
+                radius: 5.6,
                 opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(51,160,44,1.0)',
+                fillColor: 'rgba(215,25,28,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Kwale':
                     return {
-                pane: 'pane_KEMFSEDSubProjects_1',
-                shape: 'triangle',
-                radius: 6.4,
+                pane: 'pane_KEMFSED_SubProjects_1',
+                radius: 5.6,
                 opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(43,123,237,1.0)',
+                fillColor: 'rgba(245,144,83,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Lamu':
                     return {
-                pane: 'pane_KEMFSEDSubProjects_1',
-                shape: 'triangle',
-                radius: 6.4,
+                pane: 'pane_KEMFSED_SubProjects_1',
+                radius: 5.6,
                 opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(184,138,105,1.0)',
+                fillColor: 'rgba(254,223,153,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Mombasa':
                     return {
-                pane: 'pane_KEMFSEDSubProjects_1',
-                shape: 'triangle',
-                radius: 6.4,
+                pane: 'pane_KEMFSED_SubProjects_1',
+                radius: 5.6,
                 opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,0,0,1.0)',
+                fillColor: 'rgba(221,241,180,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Tana River':
                     return {
-                pane: 'pane_KEMFSEDSubProjects_1',
-                shape: 'triangle',
-                radius: 6.4,
+                pane: 'pane_KEMFSED_SubProjects_1',
+                radius: 5.6,
                 opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,127,0,1.0)',
+                fillColor: 'rgba(145,203,168,1.0)',
                 interactive: true,
             }
                     break;
                 default:
                     return {
-                pane: 'pane_KEMFSEDSubProjects_1',
-                shape: 'triangle',
-                radius: 6.4,
+                pane: 'pane_KEMFSED_SubProjects_1',
+                radius: 5.6,
                 opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(89,235,184,1.0)',
+                fillColor: 'rgba(43,131,186,1.0)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_KEMFSEDSubProjects_1');
-        map.getPane('pane_KEMFSEDSubProjects_1').style.zIndex = 401;
-        map.getPane('pane_KEMFSEDSubProjects_1').style['mix-blend-mode'] = 'normal';
-        var layer_KEMFSEDSubProjects_1 = new L.geoJson(json_KEMFSEDSubProjects_1, {
+        map.createPane('pane_KEMFSED_SubProjects_1');
+        map.getPane('pane_KEMFSED_SubProjects_1').style.zIndex = 401;
+        map.getPane('pane_KEMFSED_SubProjects_1').style['mix-blend-mode'] = 'normal';
+        var layer_KEMFSED_SubProjects_1 = new L.geoJson(json_KEMFSED_SubProjects_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_KEMFSEDSubProjects_1',
-            layerName: 'layer_KEMFSEDSubProjects_1',
-            pane: 'pane_KEMFSEDSubProjects_1',
-            onEachFeature: pop_KEMFSEDSubProjects_1,
+            dataVar: 'json_KEMFSED_SubProjects_1',
+            layerName: 'layer_KEMFSED_SubProjects_1',
+            pane: 'pane_KEMFSED_SubProjects_1',
+            onEachFeature: pop_KEMFSED_SubProjects_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_KEMFSEDSubProjects_1_0(feature));
+                return L.circleMarker(latlng, style_KEMFSED_SubProjects_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_KEMFSEDSubProjects_1);
-        map.addLayer(layer_KEMFSEDSubProjects_1);
+        bounds_group.addLayer(layer_KEMFSED_SubProjects_1);
+        map.addLayer(layer_KEMFSED_SubProjects_1);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -280,13 +270,13 @@
             };
             title.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'KEMFSED Sub Projects<br /><table><tr><td style="text-align: center;"><img src="legend/KEMFSEDSubProjects_1_Kilifi0.png" /></td><td>Kilifi</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSEDSubProjects_1_Kwale1.png" /></td><td>Kwale</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSEDSubProjects_1_Lamu2.png" /></td><td>Lamu</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSEDSubProjects_1_Mombasa3.png" /></td><td>Mombasa</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSEDSubProjects_1_TanaRiver4.png" /></td><td>Tana River</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSEDSubProjects_1_5.png" /></td><td></td></tr></table>': layer_KEMFSEDSubProjects_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'KEMFSED_SubProjects<br /><table><tr><td style="text-align: center;"><img src="legend/KEMFSED_SubProjects_1_Kilifi0.png" /></td><td>Kilifi</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSED_SubProjects_1_Kwale1.png" /></td><td>Kwale</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSED_SubProjects_1_Lamu2.png" /></td><td>Lamu</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSED_SubProjects_1_Mombasa3.png" /></td><td>Mombasa</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSED_SubProjects_1_TanaRiver4.png" /></td><td>Tana River</td></tr><tr><td style="text-align: center;"><img src="legend/KEMFSED_SubProjects_1_5.png" /></td><td></td></tr></table>': layer_KEMFSED_SubProjects_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
-            layer: layer_KEMFSEDSubProjects_1,
+            layer: layer_KEMFSED_SubProjects_1,
             initial: false,
             hideMarkerOnCollapse: true,
-            propertyName: 'Name of CI'}));
+            propertyName: 'County'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
         var mapDiv = document.getElementById('map');
@@ -308,7 +298,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"KEMFSED_Gr": "int","County": "str","Phase": "str","Sub-projec": "str"};
+        var Filters = {"KEMFSED_GR": "int","County": "str"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -400,42 +390,42 @@
         }
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_KEMFSED_Gr = document.createElement("div");
-            div_KEMFSED_Gr.id = "div_KEMFSED_Gr";
-            div_KEMFSED_Gr.className = "slider";
-            document.getElementById("menu").appendChild(div_KEMFSED_Gr);
-            var lab_KEMFSED_Gr = document.createElement('div');
-            lab_KEMFSED_Gr.innerHTML  = 'KEMFSED_Gr: <span id="val_KEMFSED_Gr"></span>';
-            lab_KEMFSED_Gr.className = 'filterlabel';
-            document.getElementById("menu").appendChild(lab_KEMFSED_Gr);
-            var reset_KEMFSED_Gr = document.createElement('div');
-            reset_KEMFSED_Gr.innerHTML = 'clear filter';
-            reset_KEMFSED_Gr.className = 'filterlabel';
-            lab_KEMFSED_Gr.className = 'filterlabel';
-            reset_KEMFSED_Gr.onclick = function() {
-                sel_KEMFSED_Gr.noUiSlider.reset();
+            var div_KEMFSED_GR = document.createElement("div");
+            div_KEMFSED_GR.id = "div_KEMFSED_GR";
+            div_KEMFSED_GR.className = "slider";
+            document.getElementById("menu").appendChild(div_KEMFSED_GR);
+            var lab_KEMFSED_GR = document.createElement('div');
+            lab_KEMFSED_GR.innerHTML  = 'KEMFSED_GR: <span id="val_KEMFSED_GR"></span>';
+            lab_KEMFSED_GR.className = 'filterlabel';
+            document.getElementById("menu").appendChild(lab_KEMFSED_GR);
+            var reset_KEMFSED_GR = document.createElement('div');
+            reset_KEMFSED_GR.innerHTML = 'clear filter';
+            reset_KEMFSED_GR.className = 'filterlabel';
+            lab_KEMFSED_GR.className = 'filterlabel';
+            reset_KEMFSED_GR.onclick = function() {
+                sel_KEMFSED_GR.noUiSlider.reset();
             };
-            document.getElementById("menu").appendChild(reset_KEMFSED_Gr);
-            var sel_KEMFSED_Gr = document.getElementById('div_KEMFSED_Gr');
-            noUiSlider.create(sel_KEMFSED_Gr, {
+            document.getElementById("menu").appendChild(reset_KEMFSED_GR);
+            var sel_KEMFSED_GR = document.getElementById('div_KEMFSED_GR');
+            noUiSlider.create(sel_KEMFSED_GR, {
                 connect: true,
-                start: [513000, 11170500],
+                start: [513000, 10000000],
                 step: 1,
                 format: wNumb({
                     decimals: 0,
                     }),
                 range: {
                 min: 513000,
-                max: 11170500
+                max: 10000000
                 }
             });
-            sel_KEMFSED_Gr.noUiSlider.on('update', function (values) {
+            sel_KEMFSED_GR.noUiSlider.on('update', function (values) {
             filterVals =[];
             for (value in values){
             filterVals.push(parseInt(value))
             }
-            val_KEMFSED_Gr = document.getElementById('val_KEMFSED_Gr');
-            val_KEMFSED_Gr.innerHTML = values.join(' - ');
+            val_KEMFSED_GR = document.getElementById('val_KEMFSED_GR');
+            val_KEMFSED_GR.innerHTML = values.join(' - ');
                 filterFunc()
             });
             document.getElementById("menu").appendChild(
@@ -472,77 +462,6 @@
                 filterFunc();
             };
             div_County.appendChild(reset_County);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Phase = document.createElement('div');
-            div_Phase.id = "div_Phase";
-            div_Phase.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Phase);
-            sel_Phase = document.createElement('select');
-            sel_Phase.multiple = true;
-            sel_Phase.size = 3;
-            sel_Phase.id = "sel_Phase";
-            var Phase_options_str = "<option value='' unselected></option>";
-            sel_Phase.onchange = function(){filterFunc()};
-            Phase_options_str  += '<option value="NULL">NULL</option>';
-            Phase_options_str  += '<option value="Phase 1">Phase 1</option>';
-            Phase_options_str  += '<option value="Phase 2">Phase 2</option>';
-            sel_Phase.innerHTML = Phase_options_str;
-            div_Phase.appendChild(sel_Phase);
-            var lab_Phase = document.createElement('div');
-            lab_Phase.innerHTML = 'Phase';
-            lab_Phase.className = 'filterlabel';
-            div_Phase.appendChild(lab_Phase);
-            var reset_Phase = document.createElement('div');
-            reset_Phase.innerHTML = 'clear filter';
-            reset_Phase.className = 'filterlabel';
-            reset_Phase.onclick = function() {
-                var options = document.getElementById("sel_Phase").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Phase.appendChild(reset_Phase);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
-            var div_Subprojec = document.createElement('div');
-            div_Subprojec.id = "div_Subprojec";
-            div_Subprojec.className= "filterselect";
-            document.getElementById("menu").appendChild(div_Subprojec);
-            sel_Subprojec = document.createElement('select');
-            sel_Subprojec.multiple = true;
-            sel_Subprojec.size = 10;
-            sel_Subprojec.id = "sel_Subprojec";
-            var Subprojec_options_str = "<option value='' unselected></option>";
-            sel_Subprojec.onchange = function(){filterFunc()};
-            Subprojec_options_str  += '<option value="NULL">NULL</option>';
-            Subprojec_options_str  += '<option value="Aquaculture">Aquaculture</option>';
-            Subprojec_options_str  += '<option value="Boat">Boat</option>';
-            Subprojec_options_str  += '<option value="Crops">Crops</option>';
-            Subprojec_options_str  += '<option value="Environment">Environment</option>';
-            Subprojec_options_str  += '<option value="Fisheries">Fisheries</option>';
-            Subprojec_options_str  += '<option value="Livelihood">Livelihood</option>';
-            Subprojec_options_str  += '<option value="Livestock">Livestock</option>';
-            Subprojec_options_str  += '<option value="SME">SME</option>';
-            Subprojec_options_str  += '<option value="Social">Social</option>';
-            sel_Subprojec.innerHTML = Subprojec_options_str;
-            div_Subprojec.appendChild(sel_Subprojec);
-            var lab_Subprojec = document.createElement('div');
-            lab_Subprojec.innerHTML = 'Sub-projec';
-            lab_Subprojec.className = 'filterlabel';
-            div_Subprojec.appendChild(lab_Subprojec);
-            var reset_Subprojec = document.createElement('div');
-            reset_Subprojec.innerHTML = 'clear filter';
-            reset_Subprojec.className = 'filterlabel';
-            reset_Subprojec.onclick = function() {
-                var options = document.getElementById("sel_Subprojec").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_Subprojec.appendChild(reset_Subprojec);
         </script>
     </body>
 </html>
